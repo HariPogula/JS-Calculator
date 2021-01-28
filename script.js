@@ -9,12 +9,70 @@ var clearBtn = document.getElementById("clearBtn");
 
 var operation = document.getElementById("operation");
 var output = document.getElementById("output");
+
 disableButtons();
 number1.addEventListener("input", disableButtons);
 number2.addEventListener("input", disableButtons);
 
+addBtn.addEventListener("click", () => {
+  arithmaticOpeartion("addBtn");
+});
+subtractBtn.addEventListener("click", () => {
+  arithmaticOpeartion("subtractBtn");
+});
+
+multiplyBtn.addEventListener("click", () => {
+  arithmaticOpeartion("multiplyBtn");
+});
+
+divideBtn.addEventListener("click", () => {
+  arithmaticOpeartion("divideBtn");
+});
+
+clearBtn.addEventListener("click", () => {
+  arithmaticOpeartion("clearBtn");
+});
+
+function arithmaticOpeartion(op) {
+  switch (op) {
+    case "addBtn": {
+      const result = parseInt(number1.value) + parseInt(number2.value);
+      console.log("Add " + parseInt(number1.value) + parseInt(number2.value) + " and " + result);
+      operation.innerHTML = `Operation: ${number1.value} + ${number2.value}`;
+      output.innerHTML = `Result: ${result}`;
+      break;
+    }
+    case "subtractBtn": {
+      const result = parseInt(number1.value) - parseInt(number2.value);
+      operation.innerHTML = `Operation: ${number1.value} - ${number2.value}`;
+      output.innerHTML = `Result: ${result}`;
+      break;
+    }
+    case "multiplyBtn": {
+      const result = parseInt(number1.value) * parseInt(number2.value);
+      operation.innerHTML = `Operation: ${number1.value} * ${number2.value}`;
+      output.innerHTML = `Result: ${result}`;
+      break;
+    }
+    case "divideBtn": {
+      const result = parseInt(number1.value) / parseInt(number2.value);
+      operation.innerHTML = `Operation: ${number1.value} / ${number2.value}`;
+      output.innerHTML = `Result: ${result}`;
+      break;
+    }
+
+    case "clearBtn": {
+      number1.value = "";
+      number2.value = "";
+      operation.innerHTML = `Operation:`;
+      output.innerHTML = `Result: `;
+      disableButtons();
+      break;
+    }
+  }
+}
+
 function disableButtons() {
-  // alert(number1.value.length);
   if (number1.value === "" || number2.value === "") {
     addBtn.disabled = true;
     subtractBtn.disabled = true;
@@ -37,38 +95,3 @@ function disableButtons() {
     divideBtn.classList.add("divideBtn");
   }
 }
-addBtn.addEventListener("click", () => {
-  const result = parseInt(number1.value) + parseInt(number2.value);
-  console.log("Add " + parseInt(number1.value) + parseInt(number2.value) + " and " + result);
-  operation.innerHTML = `Operation: ${number1.value} + ${number2.value}`;
-  output.innerHTML = `Result: ${result}`;
-});
-
-subtractBtn.addEventListener("click", () => {
-  const result = parseInt(number1.value) - parseInt(number2.value);
-  console.log("Add " + parseInt(number1.value) + parseInt(number2.value) + " and " + result);
-  operation.innerHTML = `Operation: ${number1.value} - ${number2.value}`;
-  output.innerHTML = `Result: ${result}`;
-});
-
-multiplyBtn.addEventListener("click", () => {
-  const result = parseInt(number1.value) * parseInt(number2.value);
-  console.log("Add " + parseInt(number1.value) + parseInt(number2.value) + " and " + result);
-  operation.innerHTML = `Operation: ${number1.value} * ${number2.value}`;
-  output.innerHTML = `Result: ${result}`;
-});
-
-divideBtn.addEventListener("click", () => {
-  const result = parseInt(number1.value) / parseInt(number2.value);
-  console.log("Add " + parseInt(number1.value) + parseInt(number2.value) + " and " + result);
-  operation.innerHTML = `Operation: ${number1.value} / ${number2.value}`;
-  output.innerHTML = `Result: ${result}`;
-});
-
-clearBtn.addEventListener("click", () => {
-  number1.value = "";
-  number2.value = "";
-  operation.innerHTML = `Operation:`;
-  output.innerHTML = `Result: `;
-  disableButtons();
-});
