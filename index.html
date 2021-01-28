@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Calculator</title>
+</head>
+
+<body>
+    <main>
+        <h3>Calculator</h3>
+        <form>
+            <div class="form-group">
+                <label>Number-1</label>
+                <input type="number" name="number1" id="number1">
+            </div>
+
+            <div class="form-group">
+                <label>Number-2</label>
+                <input type="number" name="number2" id="number2">
+            </div>
+            <div class="btn-group">
+                <button type="button" class="addBtn" id="addBtn">Add</button>
+                <button type="button" class="subtractBtn" id="subtractBtn">Subtract</button>
+                <button type="button" class="multiplyBtn" id="multiplyBtn">Multiply</button>
+                <button type="button" class="divideBtn" id="divideBtn">Divide</button>
+                <button type="button" class="clearBtn" id="clearBtn">Clear</button>
+            </div>
+            <div class="result">
+                <p id="operation">Operation: </p>
+                <strong id="output">Result: </strong>
+            </div>
+        </form>
+    </main>
+    <script src="./script.js"></script>
+</body>
+
+</html>
